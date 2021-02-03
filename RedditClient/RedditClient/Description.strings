@@ -1,0 +1,11 @@
+/* 
+  Description.strings
+  RedditClient
+
+  Created by Vladimir on 03.02.2021.
+  
+*/
+
+"Error" = "Error";
+"OK" = "OK";
+"Cancel" = "Cancel";
