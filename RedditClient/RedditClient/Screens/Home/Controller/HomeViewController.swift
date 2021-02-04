@@ -14,6 +14,11 @@ enum HomeEvent{
 class HomeViewController: UIViewController, StoryboardLoadable {
 
     // MARK: -
+    // MARK: Private Constants
+    
+    private let cellName = "cell"
+    
+    // MARK: -
     // MARK: Properties
     
     public var model: HomeModel = HomeModel()
@@ -39,5 +44,57 @@ class HomeViewController: UIViewController, StoryboardLoadable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.mainView?.prepareUI()
+        self.mainView?.setCollectionDelegates(delegate: self, datasource: self, cellName: cellName)
+//        self.mainView?.commonCollection?.delegate = self
+//        self.mainView?.commonCollection?.dataSource = self
+//        self.mainView?.commonCollection?.register(UINib(nibName: "HomeCollectionViewCell", bundle: Bundle(for: Self.self)), forCellWithReuseIdentifier: cellName)
+        self.refreshModel()
+    }
+    
+    public func refreshModel(){
+        self.model.refreshCurrentData(onSuccess: {[weak self] in
+            DispatchQueue.main.async {
+                self?.mainView?.refreshState()
+            }
+        }, onError: { [weak self] message in
+            DispatchQueue.main.async {
+                self?.showStandardError(message)
+            }
+        })
+    }
+}
+
+// MARK: -
+// MARK: Extensions
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.model.data.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as? HomeCollectionViewCell,
+              let data = self.model.data.dropFirst(indexPath.row).first else {
+            return UICollectionViewCell()
+        }
+        cell.setData(data)
+        NetworkManager.get.loadImageAndDo(data.thumbnail ?? "", toDo: { [weak cell] data in
+            cell?.setImage(data)
+        })
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == self.model.data.count - 10 {
+            self.model.refreshCurrentData(onSuccess: {[weak self] in
+                self?.mainView?.refreshState()
+            }, onError: {[weak self] message in
+                DispatchQueue.main.async {
+                    self?.showStandardError(message)
+                }
+            })
+        }
     }
 }

@@ -42,6 +42,7 @@ final class MainCoordinator: Coordinator {
         
     func start() {
         self.choosenScreen = .home
+//        NetworkManager.get.getTopFeed(page: "")
     }
         
     func continueAgain() {
@@ -68,6 +69,7 @@ final class MainCoordinator: Coordinator {
     
     func makeHome(){
         let contr = HomeViewController.startVC()
+        contr.model = HomeModel()
         contr.eventHandler = {[weak self] event in
             switch event {
             case .showLargeImage:
@@ -93,7 +95,7 @@ extension MainCoordinator {
     // MARK: Internal Methods
     
     internal func showError(_ message: String) {
-        showError(message, onCompletion: {self.choosenScreen = nil})
+        showError(message, onCompletion: {[weak self] in self?.choosenScreen = nil})
     }
     
     internal func showError(_ message: String, onCompletion: @escaping (()->())) {

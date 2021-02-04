@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F510ACF525CBEFEE00A330E1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510ACF425CBEFEE00A330E1 /* NetworkManager.swift */; };
+		F510ACF825CBF88B00A330E1 /* TopFeedStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510ACF725CBF88B00A330E1 /* TopFeedStructure.swift */; };
+		F510ACFC25CC177600A330E1 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510ACFA25CC177600A330E1 /* HomeCollectionViewCell.swift */; };
+		F510ACFD25CC177600A330E1 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F510ACFB25CC177600A330E1 /* HomeCollectionViewCell.xib */; };
+		F510AD0025CC3D0700A330E1 /* UIViewController+ShowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510ACFF25CC3D0700A330E1 /* UIViewController+ShowError.swift */; };
+		F510AD0325CC40DF00A330E1 /* HomeCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510AD0225CC40DF00A330E1 /* HomeCellData.swift */; };
 		F598C10E25CB2D6600EFEF96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F598C10D25CB2D6600EFEF96 /* AppDelegate.swift */; };
 		F598C11025CB2D6600EFEF96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F598C10F25CB2D6600EFEF96 /* SceneDelegate.swift */; };
 		F598C11725CB2D6F00EFEF96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F598C11625CB2D6F00EFEF96 /* Assets.xcassets */; };
@@ -24,6 +30,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F510ACF425CBEFEE00A330E1 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F510ACF725CBF88B00A330E1 /* TopFeedStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopFeedStructure.swift; sourceTree = "<group>"; };
+		F510ACFA25CC177600A330E1 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		F510ACFB25CC177600A330E1 /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		F510ACFF25CC3D0700A330E1 /* UIViewController+ShowError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ShowError.swift"; sourceTree = "<group>"; };
+		F510AD0225CC40DF00A330E1 /* HomeCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellData.swift; sourceTree = "<group>"; };
 		F598C10A25CB2D6600EFEF96 /* RedditClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F598C10D25CB2D6600EFEF96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F598C10F25CB2D6600EFEF96 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +65,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F510ACF325CBEFD400A330E1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F510ACF425CBEFEE00A330E1 /* NetworkManager.swift */,
+				F510ACF725CBF88B00A330E1 /* TopFeedStructure.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		F598C10125CB2D6500EFEF96 = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +93,7 @@
 		F598C10C25CB2D6600EFEF96 /* RedditClient */ = {
 			isa = PBXGroup;
 			children = (
+				F510ACF325CBEFD400A330E1 /* Network */,
 				F598C10D25CB2D6600EFEF96 /* AppDelegate.swift */,
 				F598C10F25CB2D6600EFEF96 /* SceneDelegate.swift */,
 				F598C14125CB311D00EFEF96 /* CommonClasses+Extensions */,
@@ -116,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				F598C14F25CB358B00EFEF96 /* HomeModel.swift */,
+				F510AD0225CC40DF00A330E1 /* HomeCellData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -125,6 +148,8 @@
 			children = (
 				F598C12E25CB2E8B00EFEF96 /* HomeViewController.xib */,
 				F598C13425CB2EAC00EFEF96 /* HomeView.swift */,
+				F510ACFA25CC177600A330E1 /* HomeCollectionViewCell.swift */,
+				F510ACFB25CC177600A330E1 /* HomeCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -175,6 +200,7 @@
 			children = (
 				F598C14225CB314200EFEF96 /* String+Localization.swift */,
 				F598C14B25CB352800EFEF96 /* StoryboardLoadable.swift */,
+				F510ACFF25CC3D0700A330E1 /* UIViewController+ShowError.swift */,
 			);
 			path = "CommonClasses+Extensions";
 			sourceTree = "<group>";
@@ -236,6 +262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F510ACFD25CC177600A330E1 /* HomeCollectionViewCell.xib in Resources */,
 				F598C11A25CB2D6F00EFEF96 /* LaunchScreen.storyboard in Resources */,
 				F598C11725CB2D6F00EFEF96 /* Assets.xcassets in Resources */,
 				F598C13025CB2E8B00EFEF96 /* HomeViewController.xib in Resources */,
@@ -254,10 +281,15 @@
 				F598C13F25CB2FDA00EFEF96 /* MainCoordinator.swift in Sources */,
 				F598C13925CB2F2900EFEF96 /* AppConfigurator.swift in Sources */,
 				F598C13C25CB2F6A00EFEF96 /* Coordinator.swift in Sources */,
+				F510ACF525CBEFEE00A330E1 /* NetworkManager.swift in Sources */,
+				F510ACFC25CC177600A330E1 /* HomeCollectionViewCell.swift in Sources */,
 				F598C14C25CB352800EFEF96 /* StoryboardLoadable.swift in Sources */,
 				F598C13525CB2EAC00EFEF96 /* HomeView.swift in Sources */,
 				F598C11025CB2D6600EFEF96 /* SceneDelegate.swift in Sources */,
 				F598C12F25CB2E8B00EFEF96 /* HomeViewController.swift in Sources */,
+				F510AD0025CC3D0700A330E1 /* UIViewController+ShowError.swift in Sources */,
+				F510AD0325CC40DF00A330E1 /* HomeCellData.swift in Sources */,
+				F510ACF825CBF88B00A330E1 /* TopFeedStructure.swift in Sources */,
 				F598C15025CB358B00EFEF96 /* HomeModel.swift in Sources */,
 				F598C14325CB314200EFEF96 /* String+Localization.swift in Sources */,
 			);

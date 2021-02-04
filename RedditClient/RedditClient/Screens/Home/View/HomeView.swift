@@ -9,7 +9,25 @@ import UIKit
 
 class HomeView: UIView {
 
-    @IBOutlet var commonCollection: UICollectionView?
+    // MARK: -
+    // MARK: Private Properties
     
-
+    @IBOutlet public var commonCollection: UICollectionView?
+    
+    // MARK: -
+    // MARK: Public Methods
+    
+    public func setCollectionDelegates(delegate: UICollectionViewDelegate, datasource: UICollectionViewDataSource, cellName: String) {
+        self.commonCollection?.delegate = delegate
+        self.commonCollection?.dataSource = datasource
+        self.commonCollection?.register(UINib(nibName: "HomeCollectionViewCell", bundle: Bundle(for: Self.self)), forCellWithReuseIdentifier: cellName)
+    }
+    
+    public func prepareUI() {
+//        self.commonCollection?.backgroundColor = .yellow
+    }
+    
+    public func refreshState(){
+        self.commonCollection?.reloadData()
+    }
 }
