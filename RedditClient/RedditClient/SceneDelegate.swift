@@ -14,7 +14,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // MARK: Properties
     
     var window: UIWindow?
-    var navContr: UINavigationController?
     var appConfigurator: AppConfigurator?
     
     // MARK: -
@@ -25,15 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let _window = self.window ?? UIWindow(windowScene: windowScene)
         self.window = _window
-        _window.makeKey()
-        let navigationController = UINavigationController()
-        _window.rootViewController = navigationController
-        navigationController.navigationBar.isHidden = true
-        self.navContr = navigationController
-        self.window?.rootViewController = navigationController
-        self.window = _window
-        self.appConfigurator = AppConfigurator(window: _window, controller: navigationController)
-        self.window?.makeKeyAndVisible()
+        self.appConfigurator = AppConfigurator(window: _window)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

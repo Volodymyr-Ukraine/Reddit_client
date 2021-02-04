@@ -13,7 +13,6 @@ class HomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet var authorLabel: UILabel?
     @IBOutlet var titleLabel: UILabel?
     @IBOutlet var thumbnailImage: UIImageView?
-    @IBOutlet var thumbnailAspectRatio: NSLayoutConstraint?
     @IBOutlet var commentsLabel: UILabel?
     
     override func awakeFromNib() {
@@ -27,9 +26,6 @@ class HomeCollectionViewCell: UICollectionViewCell {
     public func setData(_ data: HomeCellData){
         self.authorLabel?.text = "Author: \(data.authorName) \n\(self.generatePublishingTime(data.entryDate))"
         self.titleLabel?.text = data.title
-        if let image = data.image {
-            self.setImage(image)
-        } 
         self.commentsLabel?.text = "Now: \(data.numberComments) comments"
         setImageConstraints(width: CGFloat(data.thumbnailWidth), height: CGFloat(data.thumbnailHeight))
     }

@@ -14,6 +14,7 @@ struct HomeCellData{
     let thumbnail: String?
     let thumbnailWidth: Int
     let thumbnailHeight: Int
-    var image: Data? = nil
     let numberComments: Int
+    
+    let bigImageUrl: String
 }

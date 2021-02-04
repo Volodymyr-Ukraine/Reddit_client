@@ -17,8 +17,11 @@ final class AppConfigurator {
     // MARK: -
     // MARK: Init and Deinit
     
-    init(window: UIWindow, controller: UINavigationController) {
-        self.configure(window: window, navigationController: controller)
+    init(window: UIWindow) {
+        let navigationController = UINavigationController()
+        window.rootViewController = navigationController
+        navigationController.navigationBar.isHidden = true
+        self.configure(window: window, navigationController: navigationController)
     }
 
     // MARK: -

@@ -22,40 +22,24 @@ struct Child: Codable{
 }
 
 struct ChildData: Codable{
-//    let authorFullname: String
     let author: String
     let title: String
-//    let hidden: Bool
-//    let name: String
     let thumbnailWidth: Int?
     let thumbnailHeight: Int?
     let thumbnail: String
-//    let edited: Bool
     let created: Int
-//    let urlOverriddenByDest: String?
     let numComments: Int
-//    let permalink: String
     let url: String
-//    let media: Media?
-//    let isVideo: Bool
     
     enum CodingKeys: String, CodingKey {
-//        case authorFullname = "author_fullname"
         case author
-//        case hidden
         case title
-//        case name
         case thumbnailWidth = "thumbnail_width"
         case thumbnailHeight = "thumbnail_height"
         case thumbnail
-//        case edited
         case created
-//        case urlOverriddenByDest = "url_overridden_by_dest"
         case numComments = "num_comments"
-//        case permalink
         case url
-//        case media
-//        case isVideo = "is_video"
     }
 }
 

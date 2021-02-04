@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Properties
 
     var window: UIWindow?
-    var navContr: UINavigationController?
     var appConfigurator: AppConfigurator?
 
     // MARK: -
@@ -25,14 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             else {
                 let _window = UIWindow(frame: UIScreen.main.bounds)
                 self.window = _window
-                _window.makeKey()
-                let navigationController = UINavigationController()
-                _window.rootViewController = navigationController
-                navigationController.navigationBar.isHidden = true
-                self.navContr = navigationController
-                self.window?.rootViewController = navigationController
-                self.appConfigurator = AppConfigurator(window: _window, controller: navigationController) // todo: move doublicates
-                self.window?.makeKeyAndVisible()
+                self.appConfigurator = AppConfigurator(window: _window)
         }
         return true
     }

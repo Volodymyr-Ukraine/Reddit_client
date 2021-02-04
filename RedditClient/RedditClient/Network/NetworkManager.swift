@@ -34,7 +34,7 @@ class NetworkManager {
         guard let url = urlComponent.url else {
             onError("wrong url")
             return
-        } 
+        }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
@@ -57,14 +57,12 @@ class NetworkManager {
                         thumbnail: $0.data.thumbnail,
                         thumbnailWidth: $0.data.thumbnailWidth ?? 1,
                         thumbnailHeight: $0.data.thumbnailHeight ?? 1,
-                        numberComments: $0.data.numComments)
+                        numberComments: $0.data.numComments,
+                        bigImageUrl: $0.data.url)
                 }, pageInfo.data.after) 
             } catch {
                 print(error)
             }
-//            print(data)
-//            print(response)
-//            print(error)
         }
         .resume()
     }
