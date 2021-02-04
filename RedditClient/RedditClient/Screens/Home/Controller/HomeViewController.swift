@@ -8,7 +8,7 @@
 import UIKit
 
 enum HomeEvent{
-    case showLargeImage
+    case showLargeImage(String)
 }
 
 class HomeViewController: UIViewController, StoryboardLoadable {
@@ -46,9 +46,6 @@ class HomeViewController: UIViewController, StoryboardLoadable {
         super.viewDidLoad()
         self.mainView?.prepareUI()
         self.mainView?.setCollectionDelegates(delegate: self, datasource: self, cellName: cellName)
-//        self.mainView?.commonCollection?.delegate = self
-//        self.mainView?.commonCollection?.dataSource = self
-//        self.mainView?.commonCollection?.register(UINib(nibName: "HomeCollectionViewCell", bundle: Bundle(for: Self.self)), forCellWithReuseIdentifier: cellName)
         self.refreshModel()
     }
     
@@ -79,9 +76,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return UICollectionViewCell()
         }
         cell.setData(data)
-        NetworkManager.get.loadImageAndDo(data.thumbnail ?? "", toDo: { [weak cell] data in
-            cell?.setImage(data)
-        })
+        NetworkManager.get.loadImageAndDo(
+            data.thumbnail ?? "",
+            toDo: { [weak cell] data in
+                
+                cell?.setImage(data)
+            },
+            onError: { [weak self] message in
+                self?.showStandardError(message)
+            })
         
         return cell
     }
@@ -96,5 +99,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 }
             })
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let data = self.model.data.dropFirst(indexPath.row).first,
+              let urlString = data.bigImageUrl,
+              urlString.hasSuffix(".png") || urlString.hasSuffix(".jpg")
+            else { return }
+        self.eventHandler?(.showLargeImage(urlString))
     }
 }

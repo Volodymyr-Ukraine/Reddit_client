@@ -9,7 +9,7 @@ import UIKit
 
 enum AvailableMenuScreens: Equatable, Hashable {
     case home
-    case largeImage
+    case largeImage(String)
 }
 
 final class MainCoordinator: Coordinator {
@@ -27,8 +27,8 @@ final class MainCoordinator: Coordinator {
                 self.start()
             case .home:
                 self.makeHome()
-            case .largeImage:
-                self.makeLargeImage()
+            case .largeImage(let url):
+                self.makeLargeImage(url)
             }
         }
     }
@@ -60,20 +60,29 @@ final class MainCoordinator: Coordinator {
     // MARK: -
     // MARK: Internal Methods
     
-    func makeLargeImage(){
-//        let contr =
-//        contr.eventHandler =
-//        self.navigationController.pushViewController(contr, animated: true)
-        self.cleanControllersStack()
+    func makeLargeImage(_ urlString: String){
+        let contr = LargeImageViewController.startVC()
+        contr.loadImage(url: urlString)
+        contr.eventHandler = { [weak self, weak contr] event in
+            switch event {
+            case .cancelPressed:
+                contr?.dismiss(animated: true, completion: nil)
+            case .savePressed:
+                self?.choosenScreen = .home
+            }
+            
+        }
+        self.navigationController.pushViewController(contr, animated: false)
     }
     
     func makeHome(){
         let contr = HomeViewController.startVC()
-        contr.model = HomeModel()
-        contr.eventHandler = {[weak self] event in
+        contr.model = (self.cache[.home] as? HomeModel) ?? HomeModel()
+        contr.eventHandler = {[weak self, weak contr] event in
+            self?.cache[.home] = contr?.model
             switch event {
-            case .showLargeImage:
-                self?.choosenScreen = .largeImage
+            case .showLargeImage(let url):
+                self?.choosenScreen = .largeImage(url)
                 }
             }
         self.navigationController.pushViewController(contr, animated: true)

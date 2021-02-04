@@ -67,7 +67,7 @@ class NetworkManager {
         .resume()
     }
     
-    public func loadImageAndDo(_ urlString: String, toDo: @escaping (Data)->()){
+    public func loadImageAndDo(_ urlString: String, toDo: @escaping (Data)->(), onError: @escaping (String)->()){
         let cache =  URLCache.shared
         guard let imageURL = URL(string: urlString) else {return}
         let request = URLRequest(url: imageURL)
@@ -78,7 +78,12 @@ class NetworkManager {
                 guard let data = optionalData,
                       let response = response,
                       ((response as? HTTPURLResponse)?.statusCode ?? 500) < 300
-                else {return}
+                else {
+//                    DispatchQueue.main.async {
+//                        onError("wrong response: \(sessionError?.localizedDescription ?? "empty")")
+//                    }
+                    return
+                }
                 let cachedData = CachedURLResponse(response: response, data: data)
                 cache.storeCachedResponse(cachedData, for: request)
                 DispatchQueue.main.async {

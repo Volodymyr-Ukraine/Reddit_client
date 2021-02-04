@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LargeImageViewController" customModule="RedditClient" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="LargeImageView" customModule="RedditClient" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l6F-9f-csk">
+                    <rect key="frame" x="0.0" y="44" width="414" height="763"/>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yoD-ze-7wl">
+                    <rect key="frame" x="15" y="822" width="384" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWz-Jw-dnQ">
+                            <rect key="frame" x="0.0" y="0.0" width="184.5" height="40"/>
+                            <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                            <state key="normal" title="Cancel"/>
+                            <connections>
+                                <action selector="cancelPressed" destination="-1" eventType="touchUpInside" id="fQa-TQ-i9R"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="adl-3S-ScL">
+                            <rect key="frame" x="199.5" y="0.0" width="184.5" height="40"/>
+                            <color key="backgroundColor" name="AccentColor"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Save"/>
+                            <connections>
+                                <action selector="savePressed" destination="-1" eventType="touchUpInside" id="UKT-xf-G0a"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="tKh-82-3iL"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="l6F-9f-csk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0cf-ql-edd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="l6F-9f-csk" secondAttribute="trailing" id="5Iq-cR-EtZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="yoD-ze-7wl" secondAttribute="bottom" id="Fxk-DW-THJ"/>
+                <constraint firstItem="l6F-9f-csk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="feQ-Fx-CdA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yoD-ze-7wl" secondAttribute="trailing" constant="15" id="oeg-Li-1C2"/>
+                <constraint firstItem="yoD-ze-7wl" firstAttribute="top" secondItem="l6F-9f-csk" secondAttribute="bottom" constant="15" id="omw-z1-eGn"/>
+                <constraint firstItem="yoD-ze-7wl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="zEs-9m-Vhl"/>
+            </constraints>
+            <connections>
+                <outlet property="cancelButton" destination="AWz-Jw-dnQ" id="YTq-cx-I3x"/>
+                <outlet property="imageView" destination="l6F-9f-csk" id="cUh-2U-3Xp"/>
+                <outlet property="saveButton" destination="adl-3S-ScL" id="R2v-IV-a57"/>
+            </connections>
+            <point key="canvasLocation" x="130" y="70"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -8,12 +8,18 @@
 import UIKit
 
 class HomeCollectionViewCell: UICollectionViewCell {
-
-    @IBOutlet var commonStackView: UIStackView?
-    @IBOutlet var authorLabel: UILabel?
-    @IBOutlet var titleLabel: UILabel?
-    @IBOutlet var thumbnailImage: UIImageView?
-    @IBOutlet var commentsLabel: UILabel?
+    
+    // MARK: -
+    // MARK: Private Properties
+    
+    @IBOutlet private var commonStackView: UIStackView?
+    @IBOutlet private var authorLabel: UILabel?
+    @IBOutlet private var titleLabel: UILabel?
+    @IBOutlet private var thumbnailImage: UIImageView?
+    @IBOutlet private var commentsLabel: UILabel?
+    
+    // MARK: -
+    // MARK: Lifecycle Methods
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,6 +28,9 @@ class HomeCollectionViewCell: UICollectionViewCell {
         let commonStackWidth = NSLayoutConstraint(item: self.commonStackView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: UIScreen.main.bounds.width - CGFloat(60))
         self.commonStackView?.addConstraint(commonStackWidth)
     }
+    
+    // MARK: -
+    // MARK: Public Methods
 
     public func setData(_ data: HomeCellData){
         self.authorLabel?.text = "Author: \(data.authorName) \n\(self.generatePublishingTime(data.entryDate))"
@@ -39,12 +48,10 @@ class HomeCollectionViewCell: UICollectionViewCell {
     
     private func setImageConstraints(width: CGFloat, height: CGFloat) {
         guard let thumbnail = self.thumbnailImage else {return}
-//        let widthConstraint = NSLayoutConstraint(item: thumbnail, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: width)
         let heightConstraint = NSLayoutConstraint(item: thumbnail, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: height)
         self.thumbnailImage?.removeConstraints(self.thumbnailImage?.constraints ?? [])
         self.thumbnailImage?.addConstraints(
-            [//widthConstraint,
-             heightConstraint]
+            [heightConstraint]
         )
     }
     

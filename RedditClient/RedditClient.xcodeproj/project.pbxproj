@@ -13,6 +13,10 @@
 		F510ACFD25CC177600A330E1 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F510ACFB25CC177600A330E1 /* HomeCollectionViewCell.xib */; };
 		F510AD0025CC3D0700A330E1 /* UIViewController+ShowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510ACFF25CC3D0700A330E1 /* UIViewController+ShowError.swift */; };
 		F510AD0325CC40DF00A330E1 /* HomeCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510AD0225CC40DF00A330E1 /* HomeCellData.swift */; };
+		F510AD1625CC73EA00A330E1 /* LargeImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510AD1425CC73EA00A330E1 /* LargeImageViewController.swift */; };
+		F510AD1725CC73EA00A330E1 /* LargeImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F510AD1525CC73EA00A330E1 /* LargeImageViewController.xib */; };
+		F510AD1B25CC74F800A330E1 /* LargeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510AD1A25CC74F800A330E1 /* LargeImageView.swift */; };
+		F510AD1E25CC764100A330E1 /* LargeImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510AD1D25CC764100A330E1 /* LargeImageModel.swift */; };
 		F598C10E25CB2D6600EFEF96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F598C10D25CB2D6600EFEF96 /* AppDelegate.swift */; };
 		F598C11025CB2D6600EFEF96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F598C10F25CB2D6600EFEF96 /* SceneDelegate.swift */; };
 		F598C11725CB2D6F00EFEF96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F598C11625CB2D6F00EFEF96 /* Assets.xcassets */; };
@@ -36,6 +40,10 @@
 		F510ACFB25CC177600A330E1 /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		F510ACFF25CC3D0700A330E1 /* UIViewController+ShowError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ShowError.swift"; sourceTree = "<group>"; };
 		F510AD0225CC40DF00A330E1 /* HomeCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellData.swift; sourceTree = "<group>"; };
+		F510AD1425CC73EA00A330E1 /* LargeImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeImageViewController.swift; sourceTree = "<group>"; };
+		F510AD1525CC73EA00A330E1 /* LargeImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LargeImageViewController.xib; sourceTree = "<group>"; };
+		F510AD1A25CC74F800A330E1 /* LargeImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeImageView.swift; sourceTree = "<group>"; };
+		F510AD1D25CC764100A330E1 /* LargeImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeImageModel.swift; sourceTree = "<group>"; };
 		F598C10A25CB2D6600EFEF96 /* RedditClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F598C10D25CB2D6600EFEF96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F598C10F25CB2D6600EFEF96 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +175,7 @@
 		F598C12A25CB2E5900EFEF96 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F510AD1425CC73EA00A330E1 /* LargeImageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -174,6 +183,7 @@
 		F598C12B25CB2E5900EFEF96 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F510AD1D25CC764100A330E1 /* LargeImageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -181,6 +191,8 @@
 		F598C12C25CB2E5900EFEF96 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F510AD1525CC73EA00A330E1 /* LargeImageViewController.xib */,
+				F510AD1A25CC74F800A330E1 /* LargeImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -266,6 +278,7 @@
 				F598C11A25CB2D6F00EFEF96 /* LaunchScreen.storyboard in Resources */,
 				F598C11725CB2D6F00EFEF96 /* Assets.xcassets in Resources */,
 				F598C13025CB2E8B00EFEF96 /* HomeViewController.xib in Resources */,
+				F510AD1725CC73EA00A330E1 /* LargeImageViewController.xib in Resources */,
 				F598C14825CB31C200EFEF96 /* Description.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,12 +293,15 @@
 				F598C10E25CB2D6600EFEF96 /* AppDelegate.swift in Sources */,
 				F598C13F25CB2FDA00EFEF96 /* MainCoordinator.swift in Sources */,
 				F598C13925CB2F2900EFEF96 /* AppConfigurator.swift in Sources */,
+				F510AD1B25CC74F800A330E1 /* LargeImageView.swift in Sources */,
 				F598C13C25CB2F6A00EFEF96 /* Coordinator.swift in Sources */,
 				F510ACF525CBEFEE00A330E1 /* NetworkManager.swift in Sources */,
 				F510ACFC25CC177600A330E1 /* HomeCollectionViewCell.swift in Sources */,
+				F510AD1625CC73EA00A330E1 /* LargeImageViewController.swift in Sources */,
 				F598C14C25CB352800EFEF96 /* StoryboardLoadable.swift in Sources */,
 				F598C13525CB2EAC00EFEF96 /* HomeView.swift in Sources */,
 				F598C11025CB2D6600EFEF96 /* SceneDelegate.swift in Sources */,
+				F510AD1E25CC764100A330E1 /* LargeImageModel.swift in Sources */,
 				F598C12F25CB2E8B00EFEF96 /* HomeViewController.swift in Sources */,
 				F510AD0025CC3D0700A330E1 /* UIViewController+ShowError.swift in Sources */,
 				F510AD0325CC40DF00A330E1 /* HomeCellData.swift in Sources */,

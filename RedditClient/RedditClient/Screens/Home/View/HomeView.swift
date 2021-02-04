@@ -12,7 +12,7 @@ class HomeView: UIView {
     // MARK: -
     // MARK: Private Properties
     
-    @IBOutlet public var commonCollection: UICollectionView?
+    @IBOutlet private var commonCollection: UICollectionView?
     
     // MARK: -
     // MARK: Public Methods
@@ -21,6 +21,7 @@ class HomeView: UIView {
         self.commonCollection?.delegate = delegate
         self.commonCollection?.dataSource = datasource
         self.commonCollection?.register(UINib(nibName: "HomeCollectionViewCell", bundle: Bundle(for: Self.self)), forCellWithReuseIdentifier: cellName)
+        self.commonCollection?.allowsMultipleSelection = false
     }
     
     public func prepareUI() {
