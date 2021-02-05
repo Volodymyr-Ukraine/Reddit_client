@@ -17,6 +17,7 @@
 		F510AD1725CC73EA00A330E1 /* LargeImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F510AD1525CC73EA00A330E1 /* LargeImageViewController.xib */; };
 		F510AD1B25CC74F800A330E1 /* LargeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510AD1A25CC74F800A330E1 /* LargeImageView.swift */; };
 		F510AD1E25CC764100A330E1 /* LargeImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510AD1D25CC764100A330E1 /* LargeImageModel.swift */; };
+		F510AD2325CD672300A330E1 /* HomeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510AD2225CD672100A330E1 /* HomeCollectionCell.swift */; };
 		F598C10E25CB2D6600EFEF96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F598C10D25CB2D6600EFEF96 /* AppDelegate.swift */; };
 		F598C11025CB2D6600EFEF96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F598C10F25CB2D6600EFEF96 /* SceneDelegate.swift */; };
 		F598C11725CB2D6F00EFEF96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F598C11625CB2D6F00EFEF96 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		F510AD1525CC73EA00A330E1 /* LargeImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LargeImageViewController.xib; sourceTree = "<group>"; };
 		F510AD1A25CC74F800A330E1 /* LargeImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeImageView.swift; sourceTree = "<group>"; };
 		F510AD1D25CC764100A330E1 /* LargeImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeImageModel.swift; sourceTree = "<group>"; };
+		F510AD2225CD672100A330E1 /* HomeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionCell.swift; sourceTree = "<group>"; };
 		F598C10A25CB2D6600EFEF96 /* RedditClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F598C10D25CB2D6600EFEF96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F598C10F25CB2D6600EFEF96 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				F598C12E25CB2E8B00EFEF96 /* HomeViewController.xib */,
 				F598C13425CB2EAC00EFEF96 /* HomeView.swift */,
 				F510ACFA25CC177600A330E1 /* HomeCollectionViewCell.swift */,
+				F510AD2225CD672100A330E1 /* HomeCollectionCell.swift */,
 				F510ACFB25CC177600A330E1 /* HomeCollectionViewCell.xib */,
 			);
 			path = View;
@@ -296,6 +299,7 @@
 				F510AD1B25CC74F800A330E1 /* LargeImageView.swift in Sources */,
 				F598C13C25CB2F6A00EFEF96 /* Coordinator.swift in Sources */,
 				F510ACF525CBEFEE00A330E1 /* NetworkManager.swift in Sources */,
+				F510AD2325CD672300A330E1 /* HomeCollectionCell.swift in Sources */,
 				F510ACFC25CC177600A330E1 /* HomeCollectionViewCell.swift in Sources */,
 				F510AD1625CC73EA00A330E1 /* LargeImageViewController.swift in Sources */,
 				F598C14C25CB352800EFEF96 /* StoryboardLoadable.swift in Sources */,
@@ -449,7 +453,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T288BZ827T;
 				INFOPLIST_FILE = RedditClient/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -469,7 +473,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T288BZ827T;
 				INFOPLIST_FILE = RedditClient/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

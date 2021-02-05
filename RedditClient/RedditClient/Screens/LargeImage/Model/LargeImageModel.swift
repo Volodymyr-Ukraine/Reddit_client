@@ -13,6 +13,13 @@ class LargeImageModel {
     public var imageData: Data? = nil
     
     public func loadImageData(_ name: String, onSuccess: @escaping (Data)->(), onError: @escaping (String)->()){
-        NetworkManager.get.loadImageAndDo(name, toDo: onSuccess, onError: onError)
+        self.imageName = name
+        NetworkManager.get.loadImageAndDo(
+            name,
+            toDo: { [weak self] data in
+                self?.imageData = data
+                onSuccess(data)
+            },
+            onError: onError)
     }
 }

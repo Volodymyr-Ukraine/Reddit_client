@@ -31,6 +31,10 @@ class LargeImageView: UIView {
         self.imageView?.image = UIImage(data: data)
     }
     
+    public func getImage() -> UIImage? {
+        return self.imageView?.image
+    }
+    
     // MARK: -
     // MARK: Private Methods
     

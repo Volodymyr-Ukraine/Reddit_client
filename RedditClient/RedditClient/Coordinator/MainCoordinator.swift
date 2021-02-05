@@ -19,7 +19,6 @@ final class MainCoordinator: Coordinator {
     
     let navigationController: UINavigationController
     private var cache: [AvailableMenuScreens: AnyObject?] = [:]
-    internal var navigationScreens: [AvailableMenuScreens] = []
     internal var choosenScreen: AvailableMenuScreens? {
         willSet{
             switch newValue {
@@ -65,9 +64,7 @@ final class MainCoordinator: Coordinator {
         contr.loadImage(url: urlString)
         contr.eventHandler = { [weak self, weak contr] event in
             switch event {
-            case .cancelPressed:
-                contr?.dismiss(animated: true, completion: nil)
-            case .savePressed:
+            case .done:
                 self?.choosenScreen = .home
             }
             
@@ -89,33 +86,3 @@ final class MainCoordinator: Coordinator {
         self.cleanControllersStack()
     }
 }
-
-extension MainCoordinator {
-    
-    // MARK: -
-    // MARK: Public Methods
-    
-    public func jumpBack(){
-        self.navigationScreens = self.navigationScreens.dropLast()
-        self.choosenScreen = self.navigationScreens.last
-    }
-    
-    // MARK: -
-    // MARK: Internal Methods
-    
-    internal func showError(_ message: String) {
-        showError(message, onCompletion: {[weak self] in self?.choosenScreen = nil})
-    }
-    
-    internal func showError(_ message: String, onCompletion: @escaping (()->())) {
-        let alert = UIAlertController(title: "Error".localize(), message: message, preferredStyle: .alert)
-        alert.addAction(.init(title: "OK".localize(), style: .cancel, handler: { action in
-            onCompletion()
-        }))
-        alert.addAction(.init(title: "Cancel".localize(), style: .default, handler: {action in
-            onCompletion()
-        }))
-        self.navigationController.pushViewController(alert, animated: true)
-    }
-}
-

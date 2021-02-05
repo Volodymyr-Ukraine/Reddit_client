@@ -8,8 +8,7 @@
 import UIKit
 
 enum LargeImageEvent{
-    case cancelPressed
-    case savePressed
+    case done
 }
 
 class LargeImageViewController: UIViewController, StoryboardLoadable {
@@ -56,11 +55,20 @@ class LargeImageViewController: UIViewController, StoryboardLoadable {
     
     @IBAction
     public func cancelPressed(){
-        self.eventHandler?(.cancelPressed)
+        self.eventHandler?(.done)
     }
 
     @IBAction
     public func savePressed(){
-        self.eventHandler?(.savePressed)
+        guard let image = self.mainView?.getImage() else {return}
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(imageSaved(_:errorCatched:contextInfo:)), nil)
+    }
+    
+    @objc
+    private func imageSaved(_ image: UIImage, errorCatched error: Error?, contextInfo: UnsafeRawPointer){
+        if let error = error {
+            self.showStandardError("\(error.localizedDescription)")
+        }
+        self.eventHandler?(.done)
     }
 }

@@ -20,7 +20,8 @@ class HomeView: UIView {
     public func setCollectionDelegates(delegate: UICollectionViewDelegate, datasource: UICollectionViewDataSource, cellName: String) {
         self.commonCollection?.delegate = delegate
         self.commonCollection?.dataSource = datasource
-        self.commonCollection?.register(UINib(nibName: "HomeCollectionViewCell", bundle: Bundle(for: Self.self)), forCellWithReuseIdentifier: cellName)
+//        self.commonCollection?.register(UINib(nibName: "HomeCollectionViewCell", bundle: Bundle(for: Self.self)), forCellWithReuseIdentifier: cellName)
+        self.commonCollection?.register(HomeCollectionCell.self, forCellWithReuseIdentifier: cellName)
         self.commonCollection?.allowsMultipleSelection = false
     }
     

@@ -10,6 +10,13 @@ import UIKit
 class HomeCollectionViewCell: UICollectionViewCell {
     
     // MARK: -
+    // MARK: Internal Structures
+    
+    struct Sizes {
+        static let standardOffset: CGFloat = 15
+    }
+    
+    // MARK: -
     // MARK: Private Properties
     
     @IBOutlet private var commonStackView: UIStackView?
@@ -25,14 +32,14 @@ class HomeCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         let widthConstraint = NSLayoutConstraint(item: self, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: UIScreen.main.bounds.width - CGFloat(30))
         self.addConstraint(widthConstraint)
-        let commonStackWidth = NSLayoutConstraint(item: self.commonStackView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: UIScreen.main.bounds.width - CGFloat(60))
-        self.commonStackView?.addConstraint(commonStackWidth)
+        self.commonStackView?.translatesAutoresizingMaskIntoConstraints = false
     }
     
     // MARK: -
     // MARK: Public Methods
 
     public func setData(_ data: HomeCellData){
+        self.setCommonStackConstraints()
         self.authorLabel?.text = "Author: \(data.authorName) \n\(self.generatePublishingTime(data.entryDate))"
         self.titleLabel?.text = data.title
         self.commentsLabel?.text = "Now: \(data.numberComments) comments"
@@ -48,11 +55,27 @@ class HomeCollectionViewCell: UICollectionViewCell {
     
     private func setImageConstraints(width: CGFloat, height: CGFloat) {
         guard let thumbnail = self.thumbnailImage else {return}
-        let heightConstraint = NSLayoutConstraint(item: thumbnail, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: height)
+        let heightConstraint = NSLayoutConstraint(item: thumbnail, attribute: .height, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .height, multiplier: 1, constant: height)
         self.thumbnailImage?.removeConstraints(self.thumbnailImage?.constraints ?? [])
         self.thumbnailImage?.addConstraints(
             [heightConstraint]
         )
+    }
+    
+    private func setCommonStackConstraints(){
+        guard let commonStack = self.commonStackView else {return}
+        
+//        self.commonStackView?.removeConstraints(commonStack.constraints)
+//        self.removeConstraints(commonStack.constraints)
+        
+//        self.addConstraints([
+//            NSLayoutConstraint(item: commonStack, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: UIScreen.main.bounds.width - CGFloat(60)),
+//            NSLayoutConstraint(item: commonStack, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: Sizes.standardOffset),
+//            NSLayoutConstraint(item: commonStack, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: Sizes.standardOffset),
+//            NSLayoutConstraint(item: commonStack, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0 )
+//        ])
+        
+        
     }
     
     private func generatePublishingTime(_ inputDate: Int)->String{

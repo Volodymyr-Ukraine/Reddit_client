@@ -21,10 +21,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l6F-9f-csk">
-                    <rect key="frame" x="0.0" y="44" width="414" height="763"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="748"/>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yoD-ze-7wl">
-                    <rect key="frame" x="15" y="822" width="384" height="40"/>
+                    <rect key="frame" x="15" y="807" width="384" height="40"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWz-Jw-dnQ">
                             <rect key="frame" x="0.0" y="0.0" width="184.5" height="40"/>
@@ -54,7 +54,7 @@
             <constraints>
                 <constraint firstItem="l6F-9f-csk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0cf-ql-edd"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="l6F-9f-csk" secondAttribute="trailing" id="5Iq-cR-EtZ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="yoD-ze-7wl" secondAttribute="bottom" id="Fxk-DW-THJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="yoD-ze-7wl" secondAttribute="bottom" constant="15" id="Fxk-DW-THJ"/>
                 <constraint firstItem="l6F-9f-csk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="feQ-Fx-CdA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yoD-ze-7wl" secondAttribute="trailing" constant="15" id="oeg-Li-1C2"/>
                 <constraint firstItem="yoD-ze-7wl" firstAttribute="top" secondItem="l6F-9f-csk" secondAttribute="bottom" constant="15" id="omw-z1-eGn"/>
