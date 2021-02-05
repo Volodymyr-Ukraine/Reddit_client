@@ -91,13 +91,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == self.model.data.count - 10 {
-            self.model.refreshCurrentData(onSuccess: {[weak self] in
-                self?.mainView?.refreshState()
-            }, onError: {[weak self] message in
-                DispatchQueue.main.async {
+            DispatchQueue.global(qos: .background).async {
+                self.model.refreshCurrentData(onSuccess: {[weak self] in
+                    self?.mainView?.refreshState()
+                }, onError: {[weak self] message in
                     self?.showStandardError(message)
-                }
-            })
+                })
+            }
         }
     }
     
